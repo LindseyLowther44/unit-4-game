@@ -4,41 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/reset.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="assets/javascript/game.js"></script>
-
+<div id="wrap">
     <header>
         <h1> The Crystal Collector </h1>
     </header>
 
     <body>
-        <div class="mainCrystalSection">
-
         
-            <section class="score">
-                <p id="yourNum">Current Value: <span id="currentVal"> </span></p>
-                <p id="score">Score: <span id="wins"> </span><span id="loss"> </span></p>
-                <p id="randNum">Target Value: <span id="targetVal"> </span></p>
-            </section>
+            <div id="mainCrystalSection">
 
-            <section class="crystal">
-                <img src="assets/images/icons8-emerald.png" style="height: 150px; width: 150px;" id="crystalOne">
-                <img src="assets/images/icons8-jewel.png"style="height: 150px; width: 150px;" id="crystalTwo">
-                <img src="assets/images/icons8-ruby_programming_language.png" style="height: 150px; width: 150px;" id="crystalThree">
-                <img src="assets/images/icons8-sapphire.png" style="height: 150px; width: 150px;" id ="crystalFour"> 
-            </section>
-
-            <section class="directions">
-                <p>You will be given a random number</p>
-                <p>Each crystal has its own value, use each crystal to reach your value.</p>
-                <p>You will win if you match the given value.</p>                 
-                <p>You will lose if your guess goes above the given value.</p>
-            </section>
-        
-        </div>    
+                <section class="crystal">
+                    <img src="assets/images/icons8-emerald.png" style="height: 100px; width: 100px;" id="crystalOne">
+                    <img src="assets/images/icons8-diamond.png"style="height: 100px; width: 100px;" id="crystalTwo">
+                    <img src="assets/images/icons8-ruby_programming_language.png" style="height: 100px; width: 100px;" id="crystalThree">
+                    <img src="assets/images/icons8-sapphire.png" style="height: 100px; width: 100px;" id ="crystalFour"> 
+                </section>
+                <br><br>
+                <section class="score">
+                        <p id="randNum">Target Value: <span id="targetVal"> </span></p>
+                        <p id="yourNum">Current Value: <span id="currentVal"> </span></p>
+                        <p id="score">Score 
+                        <p>Wins:<span id="wins">0 </span>| Losses:<span id="loss">0</span></p>
+                </section>
+                <br><br>
+                <section class="directions">
+                    <p>You will be given a random number</p>
+                    <p>Each crystal has its own value, use each crystal to reach your value.</p>
+                    <p>You will win if you match the given value.</p>                 
+                    <p>You will lose if your guess goes above the given value.</p>
+                </section>
+                <br><br>
+        </div>
+    </div> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="assets/javascript/game.js"></script>
+           
     </body>
 </body>
 </html>

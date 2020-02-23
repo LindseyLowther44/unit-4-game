@@ -1,86 +1,97 @@
-$(document).ready(function() {
-
-    //step one-variables ran num, wins&&losses, our score,rando crystal values,
+$(document).ready(function () {
+    
+    var targetValue = Math.floor((Math.random() * 121) + 19);
+    var currentValue = 0;
     var crystalOne = Math.floor((Math.random() * 13) + 1);
     var crystalTwo = Math.floor((Math.random() * 13) + 1);
     var crystalThree = Math.floor((Math.random() * 13) + 1);
     var crystalFour = Math.floor((Math.random() * 13) + 1);
-    var targetValue = Math.floor((Math.random() * 121) + 19);
-    var wins = 0;
-    var losses = 0;
-    var currentValue = 0;
+    
+    var wins = 1;
+    var losses = 1;
+    
 
-    console.log(crystalOne);
-    console.log(crystalTwo);
-    console.log(crystalThree);
-    console.log(crystalFour);
-    console.log(targetValue);
-    console.log(wins);
-    console.log(losses);
+
+
+    console.log("Crystal1: " + crystalOne);
+    console.log("Crystal2: " + crystalTwo);
+    console.log("Crystal3: " + crystalThree);
+    console.log("Crystal4: " + crystalFour);
+    console.log("Target Value: " + targetValue);
+    console.log("Current Value: " +currentValue);
+    console.log("Wins: " + wins);
+    console.log("Losses:" +losses);
 
     $("#targetVal").text(targetValue);
+    $("#currentVal").text(currentValue);
 
-    if (currentValue === targetValue) {
-        resetGame ();
-        wins++;
-        $('#wins').text(wins);
-        console.log("You win!!");
-    } else if (currentValue > targetValue) {
-        resetGame ();
-        losses++;
-        $('#loss').text(losses);
-        console.log("You Lose!!");
-    }
+    
 
-    $('#crystalOne').click(function() {
-        currentValue =currentValue + crystalOne;
-        console.log(currentValue);
-        $('#currentVal').text(currentValue);
-        
-    });
-
-    $('#crystalTwo').click(function() {
-        currentValue = currentValue + crystalTwo;
-        console.log(currentValue);
-        $('#currentVal').text(currentValue);
-        
-    });
-
-    $('#crystalThree').click(function() {
-        currentValue =currentValue + crystalThree;
-        console.log(currentValue);
-        $('#currentVal').text(currentValue);
-        
-    });
-
-    $('#crystalFour').click(function() {
-        currentValue =currentValue + crystalFour;
-        console.log(currentValue);
-        $('#currentVal').text(currentValue);
-        
-    });
-
-    if (currentValue === targetValue) {
-        resetGame ();
-        wins++;
-        $('#wins').text(wins);
-        console.log("You win!!");
-    } else if (currentValue > targetValue) {
-        resetGame ();
-        losses++;
-        $('#loss').text(losses);
-        console.log("You Lose!!");
-    }
-
-    //our number generator
-    function resetGame () {
+    function resetGame() {
+        crystalOne = Math.floor((Math.random() * 13) + 1);
+        crystalTwo = Math.floor((Math.random() * 13) + 1);
+        crystalThree = Math.floor((Math.random() * 13) + 1);
+        crystalFour = Math.floor((Math.random() * 13) + 1);
         targetValue = Math.floor((Math.random() * 121) + 19);
-        crystalOne = Math.floor((Math.random() * 13) +1);
-        crystalOne = Math.floor((Math.random() * 13) +1);
-        crystalOne = Math.floor((Math.random() * 13) +1);
-        crystalOne = Math.floor((Math.random() * 13) +1);
-        currentValue = 0;
-    };
-    //restart once number is <= 
+        }
+    function gameFunction() {
+        if (currentValue === targetValue) {
+            resetGame();
+            alert("You Win!");
+            $('#wins').text(wins++);
+            $("#targetVal").text(targetValue);
+            currentValue=0;
+            $("#currentVal").text(currentValue);
+            console.log("You Win!!");
+            console.log("Crystal1: " + crystalOne);
+            console.log("Crystal2: " + crystalTwo);
+            console.log("Crystal3: " + crystalThree);
+            console.log("Crystal4: " + crystalFour);
+            console.log("Target Value: " + targetValue);
+            console.log("Current Value: " +currentValue);
+        } else if (currentValue > targetValue) {
+            resetGame();
+            alert("you lose!");
+            $("#loss").text(losses++);
+            $("#targetVal").text(targetValue);
+            currentValue=0;
+            $("#currentVal").text(currentValue);
+            console.log("You Lose!!");
+            console.log("Crystal1: " + crystalOne);
+            console.log("Crystal2: " + crystalTwo);
+            console.log("Crystal3: " + crystalThree);
+            console.log("Crystal4: " + crystalFour);
+            console.log("Target Value: " + targetValue);
+            console.log("Current Value: " +currentValue);
+        } 
+    }
+
+    $("#crystalOne").click(function () {
+        currentValue = currentValue + crystalOne;
+        console.log("Current Value: " +currentValue);
+        $("#currentVal").text(currentValue);
+        gameFunction();
+    });
+
+    $("#crystalTwo").click(function () {
+        currentValue = currentValue + crystalTwo;
+        console.log("Current Value: " +currentValue);
+        $("#currentVal").text(currentValue);
+        gameFunction()
+    });
+
+    $("#crystalThree").click(function () {
+        currentValue = currentValue + crystalThree;
+        console.log("Current Value: " +currentValue);
+        $("#currentVal").text(currentValue);
+        gameFunction()
+    });
+
+    $("#crystalFour").click(function () {
+        currentValue = currentValue + crystalFour;
+        console.log("Current Value: " +currentValue);
+        $("#currentVal").text(currentValue);
+        gameFunction()
+    });
 
 });
